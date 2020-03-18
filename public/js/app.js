@@ -1,14 +1,9 @@
 "use strict";
-console.log('Client side javascript file');
-
-
 
 const weatherForm = document.querySelector('form');
 const searchText = document.querySelector('input');
 const message01 = document.querySelector('#message01');
 const message02 = document.querySelector('#message02');
-
-
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
