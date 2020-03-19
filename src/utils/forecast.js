@@ -18,14 +18,20 @@ const forecast = (latitude, longitude, callback) => {
             callback('Error response. Code:' + response.code);
         } else {
             const data = response.body;
+            const currently = data.currently;
             const today = data.daily.data[0];
             const highDate = new Date(today.temperatureHighTime);
+            console.log(data.currently);
+            console.log(today);
             callback(undefined, {
+                temperatureHigh: today.temperatureHigh,
+                temperatureLow: today.temperatureLow,
                 maxTemperature: today.temperatureMax,
                 maxHour: highDate.getHours(),
                 maxMinute: highDate.getMinutes(),
-                temperature: response.body.currently.temperature,
+                temperature: currently.temperature,
                 summary: today.summary,
+                summaryExtra: "Está fazendo agora " + currently.temperature + "º celcius. A temperatura máxima prevista é " + today.temperatureHigh + "º; com uma mínima de  " + today.temperatureLow + "º. A chance de chuva hoje é de " + (today.precipProbability * 100) + "%.",
                 precipProbability: today.precipProbability,
             });
         }
