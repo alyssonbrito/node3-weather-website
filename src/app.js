@@ -44,7 +44,7 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', { // render: uses the view engine
         title: 'About', // variable sent to the render engine
-        name: 'Ze Droguinha' // variable sent to the render engine
+        name: 'Britos' // variable sent to the render engine
     });
 
 });
@@ -53,7 +53,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Helping everyone',
         helpTextMessage: 'Mancha',
-        name: 'Ze Droguinha' // variable sent to the render engine
+        name: 'Brito' // variable sent to the render engine
     });
 });
 
