@@ -24,6 +24,7 @@ console.log('__filename:', __filename);
 // set up
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
+app.disable('x-powered-by');
 hbs.registerPartials(partialsPath);
 
 // EXPRESS: set up static directoty
