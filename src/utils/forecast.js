@@ -31,7 +31,9 @@ const forecast = (latitude, longitude, callback) => {
                 maxMinute: highDate.getMinutes(),
                 temperature: currently.temperature,
                 summary: today.summary,
-                summaryExtra: "Está fazendo agora " + currently.temperature + "º celcius. A temperatura máxima prevista é " + today.temperatureHigh + "º; com uma mínima de  " + today.temperatureLow + "º. A chance de chuva hoje é de " + (today.precipProbability * 100) + "%.",
+                summaryExtra: "Está fazendo agora " + currently.temperature + "ºC. A temperatura máxima prevista é " +
+                    today.temperatureHigh + "º; com uma mínima de  " + today.temperatureLow +
+                    "º. A chance de chuva hoje é de " + (today.precipProbability * 100) + "%.",
                 precipProbability: today.precipProbability,
             });
         }

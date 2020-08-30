@@ -13,21 +13,29 @@ const hbs = require('hbs');
 const app = express();
 const port = process.env.PORT || 3000;
 
+
 const publicDir = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
-console.log('partialsPath:partialsPath', partialsPath);
-console.log('__dirname:', __dirname);
-console.log('__filename:', __filename);
+// console.log('__dirname:', __dirname);
+// console.log('__filename:', __filename);
+// console.log('partialsPath:', partialsPath);
 
 // set up
-app.set('view engine', 'hbs');
-app.set('views', viewsPath);
-app.disable('x-powered-by');
+app.set('view engine', 'hbs'); //set up handlebar as view engine
+app.set('views', viewsPath); //custom views path
 hbs.registerPartials(partialsPath);
 
-// EXPRESS: set up static directoty
+// firulas
+//app.disable('x-powered-by');
+app.use(function(req, res, next) {
+    res.header("x-powered-by", "Tucuma, Tapioca, and Jaba.");
+    next();
+});
+
+
+// EXPRESS: set up static directory
 app.use(express.static(publicDir));
 
 
@@ -92,7 +100,7 @@ app.get('/weather', (req, res) => {
             console.log('Error: ', error);
             console.log('Data: ', forecastdata);
             res.send({
-                forecast: forecastdata.summary + forecastdata.summaryExtra,
+                forecast: forecastdata.summary + ' ' + forecastdata.summaryExtra,
                 location: location,
                 address: req.query.address
             });
@@ -108,7 +116,7 @@ app.get('/products', (req, res) => {
 
     if (!req.query.search) {
         return res.send({
-            error: 'Must provide a search term'
+            error: 'You must provide a search term'
         });
     }
 
