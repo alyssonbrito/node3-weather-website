@@ -9,8 +9,8 @@ weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
     message01.textContent = '';
     message02.textContent = '';
-    console.log(searchText.value);
-    console.log('/weather?address=' + searchText.value);
+    //console.log(searchText.value);
+    //console.log('/weather?address=' + searchText.value);
     fetch('/weather?address=' + searchText.value).then((response) => {
         response.json().then((data) => {
             console.log(data);
