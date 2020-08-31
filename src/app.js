@@ -44,7 +44,7 @@ app.use(express.static(publicDir));
 app.get('', (req, res) => {
     res.render('index', { // render: uses the view engine
         title: 'Weather', // variable sent to the render engine
-        name: 'I am a low name' // variable sent to the render engine
+        name: 'Alysson Brito' // variable sent to the render engine
     });
 });
 
@@ -55,7 +55,7 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', { // render: uses the view engine
         title: 'About', // variable sent to the render engine
-        name: 'Britos' // variable sent to the render engine
+        name: 'Alysson Brito' // variable sent to the render engine
     });
 
 });
@@ -64,7 +64,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Helping everyone',
         helpTextMessage: 'Mancha',
-        name: 'Brito' // variable sent to the render engine
+        name: 'Alysson Brito' // variable sent to the render engine
     });
 });
 
